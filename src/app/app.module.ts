@@ -1,13 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { SharedModule } from './shared';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
-import { RouterModule, PreloadAllModules } from '@angular/router';
+
 import { CoreModule } from './core';
+import { RoutesModule } from './routes';
 
 import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 
 import '../styles/styles.css';
@@ -22,12 +20,9 @@ type StoreType = {
   declarations: [AppComponent],
   imports: [
     CoreModule,
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot(ROUTES, {})
+    SharedModule,
+    RoutesModule
   ],
-
   providers: [
     ENV_PROVIDERS
   ]
