@@ -29,7 +29,7 @@ const ngcWebpack = require('ngc-webpack');
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = process.env.BUILD_AOT || helpers.hasNpmFlag('aot');
 const METADATA = {
-  title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
+  title: 'Patrizier',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer(),
   HMR: HMR
@@ -63,7 +63,7 @@ module.exports = function (options) {
 
       'polyfills': './src/polyfills.browser.ts',
       'main':      AOT ? './src/main.browser.aot.ts' :
-                  './src/main.browser.ts'
+        './src/main.browser.ts'
 
     },
 
@@ -146,16 +146,6 @@ module.exports = function (options) {
         },
 
         /**
-         * Json loader support for *.json files.
-         *
-         * See: https://github.com/webpack/json-loader
-         */
-        {
-          test: /\.json$/,
-          use: 'json-loader'
-        },
-
-        /**
          * To string and css loader support for *.css files (from Angular components)
          * Returns file content as string
          *
@@ -163,17 +153,6 @@ module.exports = function (options) {
         {
           test: /\.css$/,
           use: ['to-string-loader', 'css-loader'],
-          exclude: [helpers.root('src', 'styles')]
-        },
-
-        /**
-         * To string and sass loader support for *.scss files (from Angular components)
-         * Returns compiled css content as string
-         *
-         */
-        {
-          test: /\.scss$/,
-          use: ['to-string-loader', 'css-loader', 'sass-loader'],
           exclude: [helpers.root('src', 'styles')]
         },
 
@@ -198,7 +177,7 @@ module.exports = function (options) {
         },
 
         /* File loader for supporting fonts, for example, in CSS files.
-        */
+         */
         {
           test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
           use: 'file-loader'
@@ -269,7 +248,7 @@ module.exports = function (options) {
         /**
          * The (\\|\/) piece accounts for path separators in *nix and Windows
          */
-        /angular(\\|\/)core(\\|\/)@angular/,
+          /angular(\\|\/)core(\\|\/)@angular/,
         helpers.root('src'), // location of your src
         {
           /**
@@ -290,8 +269,8 @@ module.exports = function (options) {
         { from: 'src/assets', to: 'assets' },
         { from: 'src/meta'}
       ],
-        isProd ? { ignore: [ 'mock-data/**/*' ] } : undefined
-      ),
+                            isProd ? { ignore: [ 'mock-data/**/*' ] } : undefined
+                           ),
 
 
       /**
@@ -359,23 +338,23 @@ module.exports = function (options) {
        * Fix Angular 2
        */
       new NormalModuleReplacementPlugin(
-        /facade(\\|\/)async/,
+          /facade(\\|\/)async/,
         helpers.root('node_modules/@angular/core/src/facade/async.js')
       ),
       new NormalModuleReplacementPlugin(
-        /facade(\\|\/)collection/,
+          /facade(\\|\/)collection/,
         helpers.root('node_modules/@angular/core/src/facade/collection.js')
       ),
       new NormalModuleReplacementPlugin(
-        /facade(\\|\/)errors/,
+          /facade(\\|\/)errors/,
         helpers.root('node_modules/@angular/core/src/facade/errors.js')
       ),
       new NormalModuleReplacementPlugin(
-        /facade(\\|\/)lang/,
+          /facade(\\|\/)lang/,
         helpers.root('node_modules/@angular/core/src/facade/lang.js')
       ),
       new NormalModuleReplacementPlugin(
-        /facade(\\|\/)math/,
+          /facade(\\|\/)math/,
         helpers.root('node_modules/@angular/core/src/facade/math.js')
       ),
 
