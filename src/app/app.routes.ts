@@ -1,3 +1,7 @@
 import { Routes } from '@angular/router';
 
-export const ROUTES: Routes = [];
+import { CoreComponent } from './core';
+
+export const ROUTES: Routes = [
+  { path: '', component: CoreComponent }
+];

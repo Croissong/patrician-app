@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 import { RouterModule, PreloadAllModules } from '@angular/router';
+import { CoreModule } from './core';
 
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
@@ -18,10 +19,9 @@ type StoreType = {
 
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
+    CoreModule,
     BrowserModule,
     FormsModule,
     HttpModule,
