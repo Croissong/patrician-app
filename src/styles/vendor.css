@@ -1,2 +1,4 @@
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 @import 'normalize.css';
+@import '@swimlane/ngx-datatable/release/themes/material.css';
+/* @import '@swimlane/ngx-datatable/release/assets/icons.css'; */

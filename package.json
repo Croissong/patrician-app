@@ -59,6 +59,7 @@
     "@angular/router": "~4.1.2",
     "@angularclass/hmr": "~1.2.2",
     "@angularclass/hmr-loader": "~3.0.2",
+    "@swimlane/ngx-datatable": "^9.1.0",
     "autoprefixer": "^7.1.1",
     "compression-webpack-plugin": "^0.4.0",
     "core-js": "^2.4.1",

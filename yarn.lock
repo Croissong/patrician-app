@@ -73,6 +73,10 @@
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@angularclass/hmr/-/hmr-1.2.2.tgz#46a18f89a1e94d05c268b83c9480e005f73fc265"
 
+"@swimlane/ngx-datatable@^9.1.0":
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@swimlane/ngx-datatable/-/ngx-datatable-9.1.0.tgz#ff398d18513c6945f670c493b91f710d32be0b16"
+
 "@types/fs-extra@0.0.33":
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-0.0.33.tgz#a8719c417b080c012d3497b28e228ac09745fdf2"
