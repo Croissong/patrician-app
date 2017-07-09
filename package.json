@@ -70,7 +70,7 @@
     "postcss": "^6.0.1",
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.5",
-    "precss": "^1.4.0",
+    "precss": "^2.0.0",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.4.0",
     "zone.js": "~0.8.5"
