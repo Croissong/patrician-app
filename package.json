@@ -46,7 +46,7 @@
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
   },
   "dependencies": {
-    "@angular/animations": "4.2.0-rc.0",
+    "@angular/animations": "4.2.3",
     "@angular/common": "4.2.3",
     "@angular/compiler": "4.2.0-rc.0",
     "@angular/core": "4.2.0-rc.0",
