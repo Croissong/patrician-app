@@ -1,5 +1,3 @@
 * Patrizier
-
-  [[https://greenkeeper.io/][file:https://badges.greenkeeper.io/Croissong/patrician-app.svg]]
   [[https://david-dm.org/croissong/patrician-app][file:https://david-dm.org/croissong/patrician-app/status.svg]]
-  [[https://david-dm.org/croissong/patrician-app?type=dev][file:https://david-dm.org/croissong/patrician-app/dev-status.svg]] 
+  [[https://david-dm.org/croissong/patrician-app?type=dev][file:https://david-dm.org/croissong/patrician-app/dev-status.svg]]

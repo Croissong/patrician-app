@@ -1,6 +1,6 @@
 <md-card>
   <md-card-title>	Card title </md-card-title>
-  <md-card-subtitle>suvtiutle <button md-raised-button color="accent">Raised button</button></md-card-subtitle>
+  <md-card-subtitle>{{test$ | async}}<button md-raised-button (click)="click()" color="accent">Raised button</button></md-card-subtitle>
   <md-card-content>
     <ngx-datatable class="material"
       [rows]="rows"
