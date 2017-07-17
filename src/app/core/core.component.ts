@@ -1,7 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Store } from "@ngrx/store";
-import { Observable } from "rxjs/Observable";
-import { AppState } from "app/app-store";
 
 @Component({
   selector: 'core',
@@ -10,16 +7,9 @@ import { AppState } from "app/app-store";
   templateUrl: './core.component.html'
 })
 export class CoreComponent {
-
-  public test$: Observable<any>;
-
-  constructor(private store: Store<AppState>) {
-    this.test$ = store.select('test');
+  constructor() {
   }
 
-  public click() {
-    this.store.dispatch({ type: 'dos' });
-  }
 
   public rows = [
     { name: 'Austin', gender: 'Male', company: 'Swimlane' },

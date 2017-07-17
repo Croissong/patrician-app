@@ -20,6 +20,6 @@
 
   <body>
     <app></app>
-    <script>initialState = {test: 1}</script>
+    <script>initialState = <%= JSON.stringify(require('./mock/initial-state.js').default) %></script>
   </body>
 </html>

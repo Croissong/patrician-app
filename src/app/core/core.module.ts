@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
-import { MdButtonModule, MdCardModule } from '@angular/material';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { CoreComponent } from './core.component';
-import { CommonModule } from "@angular/common";
 import { AppStoreModule } from "app/app-store";
+import { SharedModule } from "app/shared";
+import { TownModule } from "app/core/town";
 
 @NgModule({
   imports: [
     AppStoreModule,
-    MdButtonModule,
-    MdCardModule,
     NgxDatatableModule,
-    CommonModule
+    SharedModule,
+    TownModule
   ],
   declarations: [
     CoreComponent

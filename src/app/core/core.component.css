@@ -1,8 +1,7 @@
 md-card {
-    width: 50vw;
-    height: 70vh;
+  width: 50vw;
+  height: 70vh;
 }
 
 datatable-body-cell {
-    color: #000a12;
 }

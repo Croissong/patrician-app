@@ -2,15 +2,16 @@ import { routerReducer as router, RouterReducerState } from '@ngrx/router-store'
 import { ActionReducer, combineReducers, ActionReducerMap } from "@ngrx/store";
 import { hmrReducer } from "app/app-store/hmr";
 import { PROD } from "app/environment";
+import { Inventory } from "app/core/town";
 
 export interface AppState {
   router: RouterReducerState;
-  test: number
+  inventory: { [key: string]: Inventory[] }
 }
 
 export const reducers = {
   router,
-  test: createReducer<number>({ dos: (s) => s + 1 })
+  inventory: createReducer<{ [key: string]: Inventory[] }>({ dos: (s) => s })
 };
 
 
