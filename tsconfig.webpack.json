@@ -19,6 +19,10 @@
       "es2015",
       "dom"
     ],
+    "baseUrl": ".",
+    "paths": {
+      "@angular/*": ["node_modules/@angular/*"]
+    },
     "typeRoots": [
       "node_modules/@types"
     ],
