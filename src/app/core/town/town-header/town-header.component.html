@@ -1,1 +1,5 @@
-<town-select [towns]="towns$ | async"></town-select>
+<town-select
+  [towns]="towns$ | async"
+  [selected]="selectedTown$ | async"
+  (select)="selectTown($event)">
+</town-select>

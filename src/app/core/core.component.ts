@@ -1,4 +1,8 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Observable } from "rxjs/Observable";
+import { Store } from "@ngrx/store";
+import { AppState } from "app/app-store";
+import { Item, getItems } from "app/core/town/inventory";
 
 @Component({
   selector: 'core',
@@ -7,19 +11,15 @@ import { Component, ViewEncapsulation } from '@angular/core';
   templateUrl: './core.component.html'
 })
 export class CoreComponent {
-  constructor() {
+  items$: Observable<Item[]>;
+
+  constructor(store: Store<AppState>) {
+    this.items$ = store.select(getItems);
   }
 
-
-  public rows = [
-    { name: 'Austin', gender: 'Male', company: 'Swimlane' },
-    { name: 'Dany', gender: 'Male', company: 'KFC' },
-    { name: 'Molly', gender: 'Female', company: 'Burger King' },
-  ];
   public columns = [
-    { prop: 'name' },
-    { name: 'Gender' },
-    { name: 'Company' }
+    { name: 'Buy' },
+    { name: 'Sell' }
   ];
 
 }

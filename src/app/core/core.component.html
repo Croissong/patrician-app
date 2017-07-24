@@ -1,11 +1,11 @@
 <md-card>
-  <md-card-title>	Card title </md-card-title>
+  <md-card-title>Inventory</md-card-title>
   <md-card-subtitle>
     <town></town>
   </md-card-subtitle>
   <md-card-content>
     <ngx-datatable class="material"
-      [rows]="rows"
+      [rows]="items$ | async"
       [columns]="columns">
     </ngx-datatable>
   </md-card-content>

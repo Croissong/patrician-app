@@ -1,4 +1,4 @@
-<md-select placeholder="Town">
+<md-select (change)="onChange($event.value)" [formControl]="selectedTown" placeholder="Town">
   <md-option *ngFor="let town of towns" [value]="town.id">
     {{ town.name }}
   </md-option>

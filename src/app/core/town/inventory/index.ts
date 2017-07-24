@@ -1,1 +1,2 @@
-export { Inventory } from './inventory.model';
+export { Inventory, Item } from './inventory.model';
+export { getItems } from './inventory.selector';

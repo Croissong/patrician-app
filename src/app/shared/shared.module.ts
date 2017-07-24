@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MdButtonModule, MdCardModule, MdSelectModule } from '@angular/material';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { MdButtonModule, MdCardModule, MdSelectModule } from '@angular/material'
     CommonModule,
     MdButtonModule,
     MdCardModule,
-    MdSelectModule
+    MdSelectModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

@@ -19,7 +19,6 @@
       "dom",
       "es6"
     ],
-    "baseUrl": ".",
     "paths": {
       "@angular/*": ["node_modules/@angular/*"]
     },

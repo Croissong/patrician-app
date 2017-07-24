@@ -69,6 +69,7 @@
     "compression-webpack-plugin": "^1.0.0",
     "core-js": "^2.4.1",
     "ie-shim": "^0.1.0",
+    "monolite": "^0.4.5",
     "normalize.css": "^7.0.0",
     "postcss": "^6.0.8",
     "postcss-import": "^10.0.0",

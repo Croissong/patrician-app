@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { AppState, reducerFactory, reducers } from './app.reducer';
+import { AppState, metaReducers, reducers } from './app.reducer';
 import { StoreModule } from "@ngrx/store";
 import { PROD } from "app/environment";
 
 @NgModule({
   imports: [
-    StoreModule.forRoot(reducers, { initialState, reducerFactory }),
+    StoreModule.forRoot(reducers, { initialState, metaReducers }),
     StoreRouterConnectingModule,
     !PROD ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : []
   ],

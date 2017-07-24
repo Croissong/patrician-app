@@ -1,17 +1,20 @@
 import { routerReducer as router, RouterReducerState } from '@ngrx/router-store';
-import { ActionReducer, combineReducers, ActionReducerMap } from "@ngrx/store";
+import { ActionReducer } from "@ngrx/store";
 import { hmrReducer } from "app/app-store/hmr";
 import { PROD } from "app/environment";
-import { Inventory } from "app/core/town";
+import { Inventory, TownState } from "app/core/town";
+import { townHandlers } from "app/core/town/town.reducer";
 
 export interface AppState {
   router: RouterReducerState;
   inventory: { [key: string]: Inventory[] }
+  town: TownState
 }
 
 export const reducers = {
   router,
-  inventory: createReducer<{ [key: string]: Inventory[] }>({ dos: (s) => s })
+  inventory: createReducer<{ [key: string]: Inventory[] }>({ dos: (s) => s }),
+  town: createReducer(townHandlers)
 };
 
 
@@ -31,5 +34,4 @@ export interface Action {
   payload: any
 }
 
-export const reducerFactory = PROD ? combineReducers :
-  (reducerMap: ActionReducerMap<AppState, Action>, initialState?: AppState) => hmrReducer(combineReducers(reducerMap), initialState);
+export const metaReducers = !PROD ? [hmrReducer] : [];
