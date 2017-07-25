@@ -10,7 +10,7 @@
     "noEmit": true,
     "noEmitHelpers": true,
     "importHelpers": true,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "baseUrl": "src",
     "noUnusedLocals": true,
     "removeComments": true,
