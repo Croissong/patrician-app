@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { TownHeaderComponent, TownSelectComponent } from "./town-header";
-import { SharedModule } from "app/shared";
-import { TownComponent } from "./town.component";
+import { SharedModule } from 'app/shared';
+import { TownHeaderComponent, TownSelectComponent } from './town-header';
+import { TownComponent } from './town.component';
 
 @NgModule({
-  imports: [
-    SharedModule
-  ],
   declarations: [
     TownComponent,
     TownHeaderComponent,
@@ -15,6 +12,9 @@ import { TownComponent } from "./town.component";
   ],
   exports: [
     TownComponent
+  ],
+  imports: [
+    SharedModule
   ]
 })
 export class TownModule { }

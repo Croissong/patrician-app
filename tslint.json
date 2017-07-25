@@ -16,7 +16,7 @@
     "import-destructuring-spacing": true,
     "invoke-injectable": true,
     "member-access": true,
-    "member-ordering": true,
+    "member-ordering": [true, {"order": "statics-first"}],
     "no-any": true,
     "no-access-missing-member": true,
     "no-attribute-parameter-decorator": true,
@@ -25,7 +25,7 @@
     "no-inferrable-types": true,
     "no-non-null-assertion": true,
     "no-output-rename": true,
-    "only-arrow-functions": true,
+    "only-arrow-functions": false,
     "pipe-naming": [true, "camelCase", "my"],
     "promise-function-async": true,
     "templates-use-public": true,
@@ -53,7 +53,7 @@
       "single",
       "avoid-escape"
     ],
-    "semi-colon": [true, "always"],
+    "semicolon": [true, "always"],
     "variable-name": [
       true,
       "allow-leading-underscore",

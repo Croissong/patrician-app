@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { PROD } from 'app/environment';
 import { AppState, metaReducers, reducers } from './app.reducer';
-import { StoreModule } from "@ngrx/store";
-import { PROD } from "app/environment";
 
 @NgModule({
+  declarations: [],
+  exports: [],
   imports: [
     StoreModule.forRoot(reducers, { initialState, metaReducers }),
     StoreRouterConnectingModule,
     !PROD ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : []
-  ],
-  declarations: [],
-  exports: []
+  ]
 })
 export class AppStoreModule {
   constructor() {
@@ -22,6 +22,6 @@ export class AppStoreModule {
 
 function hydrateRoute(state: AppState) {
   if (state.router) {
-    history.replaceState({}, null, state.router.state.url);
+    history.replaceState({}, '', state.router.state.url);
   }
 }

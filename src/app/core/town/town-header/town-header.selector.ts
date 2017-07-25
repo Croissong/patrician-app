@@ -1,9 +1,8 @@
-import { createSelector } from "@ngrx/store";
-import { towns } from "app/core/town";
-import { AppState } from "app/app-store";
+import { createSelector } from '@ngrx/store';
+import { AppState } from 'app/app-store';
+import { towns } from 'app/core/town';
 
 const getTownState = (s: AppState) => s.town;
-
 
 export const getInventoryState = (s: AppState) => s.inventory;
 

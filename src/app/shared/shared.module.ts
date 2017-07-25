@@ -1,13 +1,11 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MdButtonModule, MdCardModule, MdSelectModule } from '@angular/material';
-import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  imports: [
-  ],
   exports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -16,6 +14,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     MdCardModule,
     MdSelectModule,
     ReactiveFormsModule
-  ]
+  ],
+  imports: []
 })
 export class SharedModule { }

@@ -1,6 +1,6 @@
-export class Inventory {
+export interface Inventory {
   date: number;
-  items: { [key: string]: Item }
+  items: { [key: string]: Item };
 }
 
 export interface Item {
@@ -10,4 +10,4 @@ export interface Item {
 
 export const items = [
   { id: 1, name: 'Iron' }
-]
+];

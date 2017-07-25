@@ -1,23 +1,23 @@
+import { ApplicationRef, NgModule } from '@angular/core';
+import { createInputTransfer, createNewHosts, removeNgStyles } from '@angularclass/hmr';
 import { SharedModule } from './shared';
-import { NgModule, ApplicationRef } from '@angular/core';
-import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 import { CoreModule } from './core';
 import { RoutesModule } from './routes';
 
-import { ENV_PROVIDERS } from './environment';
 import { AppComponent } from './app.component';
+import { ENV_PROVIDERS } from './environment';
 
+import { Store } from '@ngrx/store';
+import { AppState } from 'app/app-store';
+import { HmrStateAction } from 'app/app-store/hmr';
 import '../styles/styles.css';
-import { Store } from "@ngrx/store";
-import { AppState } from "app/app-store";
-import { HmrStateAction } from "app/app-store/hmr";
 
-type StoreType = {
-  restoreInputValues: () => void,
-  disposeOldHosts: () => void,
-  state: AppState
-};
+interface StoreType {
+  restoreInputValues: () => void;
+  disposeOldHosts: () => void;
+  state: AppState;
+}
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -43,7 +43,7 @@ export class AppModule {
     this._store.dispatch(new HmrStateAction(store.state));
 
     if ('restoreInputValues' in store) {
-      let restoreInputValues = store.restoreInputValues;
+      const restoreInputValues = store.restoreInputValues;
       setTimeout(restoreInputValues);
     }
 

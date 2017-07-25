@@ -1,7 +1,7 @@
-import { enableDebugTools, disableDebugTools } from '@angular/platform-browser';
 import { ApplicationRef, enableProdMode } from '@angular/core';
+import { disableDebugTools, enableDebugTools } from '@angular/platform-browser';
 
-let PROVIDERS: any[] = [
+let PROVIDERS: Array<{}> = [
   /**
    * Common env directives
    */
@@ -11,21 +11,21 @@ let PROVIDERS: any[] = [
  * Angular debug tools in the dev console
  * https://github.com/angular/angular/blob/86405345b781a9dc2438c0fbe3e9409245647019/TOOLS_JS.md
  */
-let _decorateModuleRef = <T>(value: T): T => { return value; };
+let _decorateModuleRef = <T>(value: T): T => value;
 
 export const PROD = 'production' === ENV;
 
 if (PROD) {
   enableProdMode();
 
-  _decorateModuleRef = (modRef: any) => {
+  _decorateModuleRef = (modRef: {}) => {
     disableDebugTools();
 
     return modRef;
   };
 
   PROVIDERS = [
-    ...PROVIDERS,
+    ...PROVIDERS
     /**
      * Custom providers in production.
      */
@@ -33,14 +33,14 @@ if (PROD) {
 
 } else {
 
-  _decorateModuleRef = (modRef: any) => {
+  _decorateModuleRef = (modRef: {}) => {
     const appRef = modRef.injector.get(ApplicationRef);
     const cmpRef = appRef.components[0];
 
-    let _ng = (<any>window).ng;
+    const _ng = (window as {}).ng;
     enableDebugTools(cmpRef);
-    (<any>window).ng.probe = _ng.probe;
-    (<any>window).ng.coreTokens = _ng.coreTokens;
+    (window as {}).ng.probe = _ng.probe;
+    (window as {}).ng.coreTokens = _ng.coreTokens;
     return modRef;
   };
 
@@ -48,7 +48,7 @@ if (PROD) {
    * Development
    */
   PROVIDERS = [
-    ...PROVIDERS,
+    ...PROVIDERS
     /**
      * Custom providers in development.
      */

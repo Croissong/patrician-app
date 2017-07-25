@@ -1,29 +1,16 @@
-/**
- * Angular bootstrapping
- */
+import { NgModuleRef } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { decorateModuleRef } from './app/environment';
 
-/**
- * App Module
- * our top level module that holds all of our components
- */
 import { AppModule } from './app';
 
-/**
- * Bootstrap our Angular app with a top level NgModule
- */
-export function main(): Promise<any> {
+export async function main(): Promise<void | NgModuleRef<AppModule>> {
   return platformBrowserDynamic()
     .bootstrapModule(AppModule)
     .then(decorateModuleRef)
     .catch((err) => console.error(err));
 }
 
-/**
- * Needed for hmr
- * in prod this is replace for document ready
- */
 switch (document.readyState) {
   case 'loading':
     document.addEventListener('DOMContentLoaded', _domReadyHandler, false);
@@ -35,6 +22,6 @@ switch (document.readyState) {
 }
 
 function _domReadyHandler() {
- document.removeEventListener('DOMContentLoaded', _domReadyHandler, false);
- main();
+  document.removeEventListener('DOMContentLoaded', _domReadyHandler, false);
+  main();
 }

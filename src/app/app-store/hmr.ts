@@ -1,15 +1,15 @@
-import { AppState, ActionHandlers } from "app/app-store";
-import { Action } from "app/app-store/app.reducer";
-import { ActionReducer } from "@ngrx/store";
+import { ActionReducer } from '@ngrx/store';
+import { ActionHandlers, AppState } from 'app/app-store';
+import { Action } from 'app/app-store/app.reducer';
 
 const RESTORE_HMR_STATE = 'RESTORE_HMR_STATE';
 
 export const handlers: ActionHandlers<AppState> = {
   [RESTORE_HMR_STATE]: (state: AppState, payload: AppState) => payload
-}
+};
 
 export class HmrStateAction implements Action {
-  readonly type = RESTORE_HMR_STATE;
+  public readonly type = RESTORE_HMR_STATE;
 
   constructor(public payload: AppState) { }
 }
