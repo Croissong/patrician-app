@@ -3,8 +3,8 @@ import { createInputTransfer, createNewHosts, removeNgStyles } from '@angularcla
 import { SharedModule } from './shared';
 
 import { CoreModule } from './core';
-import { RoutesModule } from './routes';
 
+import { AppRoutingModule } from './app-routing';
 import { AppComponent } from './app.component';
 import { ENV_PROVIDERS } from './environment';
 
@@ -25,7 +25,7 @@ interface StoreType {
   imports: [
     CoreModule,
     SharedModule,
-    RoutesModule
+    AppRoutingModule
   ],
   providers: [
     ENV_PROVIDERS
