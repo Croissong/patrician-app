@@ -30,7 +30,7 @@ export interface ActionHandlers<T> {
 
 export interface Action {
   type: string;
-  payload: {};
+  payload?: {};
 }
 
 export const metaReducers = !PROD ? [hmrReducer] : [];

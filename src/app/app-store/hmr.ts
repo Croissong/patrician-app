@@ -14,7 +14,7 @@ export class HmrStateAction implements Action {
   constructor(public payload: AppState) { }
 }
 
-export const hmrReducer = (reducer: ActionReducer<AppState>) =>
+export const hmrReducer = (reducer: ActionReducer<AppState>): ActionReducer<AppState> =>
   (state: AppState = initialState, action: Action) => {
     const handler = handlers[action.type];
     return handler ? handler(state, action.payload) : reducer(state, action);
