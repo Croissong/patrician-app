@@ -12,7 +12,7 @@ export interface AppState {
 }
 
 export const reducers = {
-  inventory: createReducer<{ [key: string]: Inventory[] }>({ dos: (s) => s }),
+  inventory: createReducer<{ [key: string]: Inventory[] }>({}),
   router,
   town: createReducer(townHandlers)
 };

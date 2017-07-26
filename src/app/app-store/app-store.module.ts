@@ -5,11 +5,13 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PROD } from 'app/environment';
 import { AppState, metaReducers, reducers } from './app.reducer';
 
+export const getInitialState = () => ({ ...initialState });
 @NgModule({
   declarations: [],
   exports: [],
   imports: [
     StoreModule.forRoot(reducers, { initialState, metaReducers }),
+    StoreModule.forRoot(reducers, { initialState: getInitialState, metaReducers }),
     StoreRouterConnectingModule,
     !PROD ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : []
   ]
