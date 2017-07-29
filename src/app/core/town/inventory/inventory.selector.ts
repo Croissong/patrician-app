@@ -9,6 +9,6 @@ export const getItems = createSelector(
   getInventoryStates, getTownState,
   (i, t) => {
     const values = i[t.selected][0].items;
-    return items.map((item) => values[item.id]);
+    return items.map(({ name, id }) => ({ name, ...values[id] }));
   }
 );

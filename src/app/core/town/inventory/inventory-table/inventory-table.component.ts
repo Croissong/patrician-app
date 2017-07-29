@@ -11,6 +11,7 @@ export class InventoryTableComponent {
   @Input() public items: Item[];
 
   public columns = [
+    { name: 'Item', prop: 'name' },
     { name: 'Buy' },
     { name: 'Sell' }
   ];
