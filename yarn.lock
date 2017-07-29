@@ -4759,9 +4759,9 @@ precss@^2.0.0:
     postcss-selector-matches "^3.0.1"
     postcss-selector-not "^3.0.1"
 
-preload-webpack-plugin@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/preload-webpack-plugin/-/preload-webpack-plugin-1.2.2.tgz#d1b6f0eab3c2d0bb4c249d409cf6b7a8b0a415dd"
+preload-webpack-plugin@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/preload-webpack-plugin/-/preload-webpack-plugin-1.2.3.tgz#eb51d3a81670272e314d607573b94acd2da3ba5e"
   dependencies:
     object-assign "^4.1.1"
 
