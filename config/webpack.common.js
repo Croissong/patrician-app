@@ -68,6 +68,12 @@ module.exports = function (options) {
               }
             },
             {
+              loader: 'ngc-webpack',
+              options: {
+                disable: !AOT,
+              }
+            },
+            {
               loader: 'angular2-template-loader'
             }
           ],
