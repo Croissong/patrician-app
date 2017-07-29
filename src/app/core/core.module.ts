@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { AppStoreModule } from 'app/app-store';
 import { TownModule } from 'app/core/town';
@@ -12,7 +11,6 @@ import { CoreComponent } from './core.component';
   ],
   imports: [
     AppStoreModule,
-    NgxDatatableModule,
     SharedModule,
     TownModule
   ]
