@@ -63,7 +63,7 @@
     "@ngrx/router-store": "^4.0.2",
     "@ngrx/store": "^4.0.2",
     "@ngrx/store-devtools": "^4.0.0",
-    "@swimlane/ngx-datatable": "^9.3.1",
+    "@swimlane/ngx-datatable": "^10.0.1",
     "apollo-angular": "^0.13.0",
     "apollo-client": "^1.9.0",
     "apollo-phoenix-websocket": "^0.6.2",
