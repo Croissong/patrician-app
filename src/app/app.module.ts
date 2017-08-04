@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ENV_PROVIDERS } from './environment';
 
 import { Store } from '@ngrx/store';
+import { ApiModule } from 'app/api';
 import { AppState } from 'app/app-store';
 import { HmrStateAction } from 'app/app-store/hmr';
 import '../styles/styles.css';
@@ -25,6 +26,7 @@ interface StoreType {
   imports: [
     CoreModule,
     SharedModule,
+    ApiModule,
     AppRoutingModule
   ],
   providers: [
