@@ -14,8 +14,12 @@ const CurrentUserForProfile = gql`
   query CurrentUserForProfile {
     inventories(townId:1) {date}
   }
-
 `;
+
+interface QueryResponse {
+  inventories;
+  loading;
+}
 
 export function provideClient(): ApolloClient {
   return client;
@@ -30,9 +34,9 @@ export function provideClient(): ApolloClient {
 })
 export class ApiModule {
   constructor(apollo: Apollo) {
-    apollo.watchQuery<{}>({ query: CurrentUserForProfile })
+    apollo.watchQuery<QueryResponse>({ query: CurrentUserForProfile })
       .subscribe(({ data }) => {
-        console.log(data);
+        console.log(data.inventories);
       });
   }
 }
