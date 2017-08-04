@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MdButtonModule, MdCardModule, MdSelectModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdInputModule, MdSelectModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     MdButtonModule,
     MdCardModule,
+    MdInputModule,
     MdSelectModule,
     ReactiveFormsModule
   ],
