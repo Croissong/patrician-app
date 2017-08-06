@@ -1,6 +1,6 @@
 import { ActionReducer } from '@ngrx/store';
 import { ActionHandlers, AppState } from 'app/app-store';
-import { Action } from 'app/app-store/app.reducer';
+import { Action } from './utils';
 
 const RESTORE_HMR_STATE = 'RESTORE_HMR_STATE';
 

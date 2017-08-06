@@ -111,9 +111,15 @@ module.exports = function (options) {
         {
           test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
           use: 'file-loader'
+        },
+
+        {
+          test: /\.(graphql|gql)$/,
+          exclude: /node_modules/,
+          loader: 'graphql-tag/loader'
         }
 
-      ],
+      ]
 
     },
 

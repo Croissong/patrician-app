@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Item } from 'app/core/town/inventory';
+import { Item } from 'app/core/town/shared';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -3,12 +3,12 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PROD } from 'app/environment';
-import { AppState, reducers } from './app.reducer';
+import { AppState, createReducers } from './app.reducer';
 
 export const REDUCER_TOKEN = new InjectionToken<ActionReducerMap<AppState>>('Registered Reducers');
 
 export function getReducers() {
-  return reducers;
+  return createReducers();
 }
 
 export function getInitialState() {

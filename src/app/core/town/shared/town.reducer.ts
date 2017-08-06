@@ -1,7 +1,10 @@
 import { Action } from '@ngrx/store';
-import { ActionHandlers } from 'app/app-store';
-import { TownState } from 'app/core/town';
+import { ActionHandlers, createReducer } from 'app/app-store';
 import { set } from 'monolite';
+
+export interface TownState {
+  selected: string;
+}
 
 const SELECT_TOWN = 'SELECT_TOWN';
 
@@ -10,6 +13,8 @@ export class SelectTownAction implements Action {
   constructor(public payload: string) { }
 }
 
-export const townSelectHandlers: ActionHandlers<TownState> = {
+const townHandlers: ActionHandlers<TownState> = {
   [SELECT_TOWN]: (s: TownState, id: string) => set(s, (_) => _.selected)(id)
 };
+
+export const createTownReducer = () => createReducer(townHandlers);

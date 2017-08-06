@@ -1,6 +1,6 @@
 export interface Inventory {
   date: number;
-  items: { [key: string]: Item };
+  items?: { [key: string]: Item };
 }
 
 export interface Item {

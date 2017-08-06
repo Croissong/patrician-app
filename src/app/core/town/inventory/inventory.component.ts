@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AppState } from 'app/app-store';
+import { InventoryService, Item } from 'app/core/town/shared';
 import { Observable } from 'rxjs/Observable';
-import { getItems, Item } from './';
 
 @Component({
   selector: 'inventory',
@@ -12,8 +10,8 @@ import { getItems, Item } from './';
 export class InventoryComponent {
   public items$: Observable<Item[]>;
 
-  constructor(store: Store<AppState>) {
-    this.items$ = store.select(getItems);
+  constructor(service: InventoryService) {
+    this.items$ = service.selectItems();
   }
 
 }

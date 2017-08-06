@@ -1,0 +1,3 @@
+ query InventoryDateAdded {
+    inventories(townId:1) {date}
+  }

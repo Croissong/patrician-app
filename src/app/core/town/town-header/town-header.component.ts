@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AppState } from 'app/app-store';
-import { SelectTownAction } from 'app/core/town/town-header/town-select/town-select.reducer';
+
+import { TownService } from 'app/core/town/shared/town.service';
 import { Town } from 'app/core/town/town.model';
 import { Observable } from 'rxjs/Observable';
-import { getSelectedTown, getTowns } from './town-header.selector';
 
 @Component({
   selector: 'town-header',
@@ -15,12 +13,12 @@ export class TownHeaderComponent {
   public towns$: Observable<Town[]>;
   public selectedTown$: Observable<string>;
 
-  constructor(private store: Store<AppState>) {
-    this.towns$ = store.select(getTowns);
-    this.selectedTown$ = store.select(getSelectedTown);
+  constructor(private service: TownService) {
+    this.towns$ = service.getTowns();
+    this.selectedTown$ = service.getSelectedTown();
   }
 
   public selectTown(id: string) {
-    this.store.dispatch(new SelectTownAction(id));
+    this.service.selectTown(id);
   }
 }
