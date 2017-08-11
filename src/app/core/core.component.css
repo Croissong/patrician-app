@@ -1,0 +1,18 @@
+:host {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  grid-template-rows: 1fr auto 1fr;
+  grid-template-areas:
+  "header header header header header"
+    ". town-1 . town-2 ."
+    "footer footer footer footer footer";
+}
+
+.town-1 {
+  grid-area: town-1;
+}
+
+.town-2 {
+  grid-area: town-2;
+}
