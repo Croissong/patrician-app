@@ -1,12 +1,12 @@
 const helpers = require('./helpers');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
-const webpackMergeDll = webpackMerge.strategy({plugins: 'replace'});
 const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
 
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const AutoDllPlugin = require('autodll-webpack-plugin');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HOST = process.env.HOST || 'localhost';
@@ -18,9 +18,6 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   ENV: ENV,
   HMR: HMR
 });
-
-
-const DllBundlesPlugin = require('webpack-dll-bundles-plugin').DllBundlesPlugin;
 
 module.exports = function (options) {
   return webpackMerge(commonConfig({env: ENV}), {
@@ -78,41 +75,34 @@ module.exports = function (options) {
         }
       }),
 
-      new DllBundlesPlugin({
-        bundles: {
+      new AutoDllPlugin({
+        debug: true,
+        inject: true,
+        context: helpers.root(),
+        filename: '[name]_[hash].js',
+        path: './dll',
+        entry: {
           polyfills: [
             'core-js',
-            {
-              name: 'zone.js',
-              path: 'zone.js/dist/zone.js'
-            },
-            {
-              name: 'zone.js',
-              path: 'zone.js/dist/long-stack-trace-zone.js'
-            },
+            'zone.js/dist/zone.js',
+            'zone.js/dist/long-stack-trace-zone'
           ],
           vendor: [
             '@angular/platform-browser',
             '@angular/platform-browser-dynamic',
+            '@angular/animations',
+            '@angular/cdk',
             '@angular/core',
             '@angular/common',
             '@angular/forms',
+            '@angular/http',
+            '@angular/material',
             '@angular/router',
             '@angularclass/hmr',
             'rxjs',
           ]
-        },
-        dllDir: helpers.root('dll'),
-        webpackConfig: webpackMergeDll(commonConfig({env: ENV}), {
-          devtool: 'cheap-module-source-map',
-          plugins: []
-        })
+        }
       }),
-
-      new AddAssetHtmlPlugin([
-        { filepath: helpers.root(`dll/${DllBundlesPlugin.resolveFile('polyfills')}`) },
-        { filepath: helpers.root(`dll/${DllBundlesPlugin.resolveFile('vendor')}`) }
-      ]),
 
       new LoaderOptionsPlugin({
         debug: true,
