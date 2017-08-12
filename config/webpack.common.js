@@ -88,7 +88,8 @@ module.exports = function (options) {
             }, {
               loader: 'css-loader',
               options: {
-                importLoaders: 1
+                importLoaders: 1,
+                minimize: isProd
               }
             }, {
               loader: 'postcss-loader'

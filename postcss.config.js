@@ -1,7 +1,7 @@
-module.exports = {
+module.exports = ({ env }) => ({
   plugins: {
     'postcss-import': {},
-    'precss': {},
-    'autoprefixer': {}
+    'postcss-url': {},
+    'postcss-cssnext': {}
   }
-};
+});
