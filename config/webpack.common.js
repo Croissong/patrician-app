@@ -70,7 +70,7 @@ module.exports = function (options) {
             {
               loader: 'ngc-webpack',
               options: {
-                disable: !AOT,
+                disable: !AOT
               }
             },
             {
