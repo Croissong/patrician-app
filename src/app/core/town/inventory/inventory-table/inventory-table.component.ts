@@ -4,8 +4,8 @@ import { Item } from 'app/core/town/shared';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'inventory-table',
-  styleUrls: [],
-  templateUrl: './inventory-table.component.html'
+  styleUrls: ['inventory-table.component.css'],
+  templateUrl: 'inventory-table.component.html'
 })
 export class InventoryTableComponent {
   @Input() public items: Item[];
