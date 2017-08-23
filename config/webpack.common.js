@@ -13,7 +13,6 @@ const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const ngcWebpack = require('ngc-webpack');
-// const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = process.env.BUILD_AOT || helpers.hasNpmFlag('aot');
@@ -171,18 +170,6 @@ module.exports = function (options) {
                 isProd ? { ignore: [ 'mock-data/**/*' ] } : undefined
             ),
 
-            // new PreloadWebpackPlugin({
-            //   rel: 'preload',
-            //   as: 'script',
-            //   include: ['polyfills', 'vendor', 'main'].reverse(),
-            //   fileBlacklist: ['.css', '.map']
-            // }),
-            // new PreloadWebpackPlugin({
-            //   rel: 'prefetch',
-            //   as: 'script',
-            //   include: 'asyncChunks'
-            // }),
-
             new HtmlWebpackPlugin({
                 template: 'src/index.html',
                 title: METADATA.title,
@@ -205,15 +192,8 @@ module.exports = function (options) {
             new LoaderOptionsPlugin({}),
 
             new ngcWebpack.NgcWebpackPlugin({
-                /**
-                 * If false the plugin is a ghost, it will not perform any action.
-                 * This property can be used to trigger AOT on/off depending on your build target (prod, staging etc...)
-                 *
-                 * The state can not change after initializing the plugin.
-                 * @default true
-                 */
                 disabled: !AOT,
-                tsConfig: helpers.root('tsconfig.webpack.json'),
+                tsConfig: helpers.root('tsconfig.webpack.json')
             }),
 
             new InlineManifestWebpackPlugin(),

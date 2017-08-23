@@ -122,7 +122,6 @@
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
     "postcss-url": "^7.1.2",
-    "preload-webpack-plugin": "^2.0.0",
     "protractor": "^5.1.2",
     "raw-loader": "0.5.1",
     "rimraf": "~2.6.1",
