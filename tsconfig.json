@@ -12,7 +12,7 @@
         "importHelpers": true,
         "strictNullChecks": true,
         "baseUrl": "src",
-        "noUnusedLocals": true,
+        "noUnusedLocals": false,
         "removeComments": true,
         "noImplicitAny": true,
         "lib": [

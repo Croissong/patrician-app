@@ -12,7 +12,8 @@
         "importHelpers": true,
         "strictNullChecks": false,
         "baseUrl": "src",
-        "noUnusedLocals": true,
+        // aot problems
+        "noUnusedLocals": false,
         "removeComments": true,
         "noImplicitAny": true,
         "lib": [

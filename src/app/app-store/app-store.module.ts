@@ -12,7 +12,7 @@ export function getReducers() {
 }
 
 export function getInitialState() {
-  return { ...initialState };
+  return initialState as AppState;
 }
 
 @NgModule({
@@ -30,7 +30,7 @@ export function getInitialState() {
 })
 export class AppStoreModule {
   constructor() {
-    hydrateRoute(initialState);
+    hydrateRoute(initialState as AppState);
   }
 }
 
