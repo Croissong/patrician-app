@@ -7,19 +7,22 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const AutoDllPlugin = require('autodll-webpack-plugin');
+const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3000;
-const PUBLIC = process.env.PUBLIC_DEV || undefined;
+const PUBLIC = process.env.PUBLIC_DEV || HOST + ':' + PORT;
+const AOT = process.env.BUILD_AOT || helpers.hasNpmFlag('aot');
 const HMR = helpers.hasProcessFlag('hot');
-const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
+const METADATA = {
   host: HOST,
   port: PORT,
   public: PUBLIC,
   ENV: ENV,
-  HMR: HMR
-});
+  HMR: HMR,
+  AOT: AOT
+};
 
 module.exports = function (options) {
   return webpackMerge(commonConfig({env: ENV}), {
@@ -70,11 +73,9 @@ module.exports = function (options) {
       new DefinePlugin({
         'ENV': JSON.stringify(METADATA.ENV),
         'HMR': METADATA.HMR,
-        'process.env': {
-          'ENV': JSON.stringify(METADATA.ENV),
-          'NODE_ENV': JSON.stringify(METADATA.ENV),
-          'HMR': METADATA.HMR
-        }
+        'process.env.ENV': JSON.stringify(METADATA.ENV),
+        'process.env.NODE_ENV': JSON.stringify(METADATA.ENV),
+        'process.env.HMR': METADATA.HMR
       }),
 
       new AutoDllPlugin({
@@ -113,11 +114,14 @@ module.exports = function (options) {
         }
       }),
 
+      new HotModuleReplacementPlugin()
+
     ],
 
     devServer: {
       port: METADATA.port,
       host: METADATA.host,
+      hot: METADATA.HMR,
       public: METADATA.public,
       historyApiFallback: true,
       watchOptions: {
