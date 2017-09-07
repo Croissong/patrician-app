@@ -8,7 +8,7 @@ export const getInventoryState = (s: AppState) => s.inventory;
 
 export const getTowns = createSelector(
   getInventoryState,
-  (i) => Object.keys(i).map((id) => towns[id]));
+  (i) => Object.keys(i.inventories).map((id) => towns[id]));
 
 export const getSelectedTown = {
   Town1: createSelectedTownSelector('Town1'),

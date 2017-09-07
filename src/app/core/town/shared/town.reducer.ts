@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-import { ActionHandlers, createReducer } from 'app/app-store';
 import { set } from 'monolite';
 
 export type TownComponentId =

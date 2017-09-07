@@ -1,6 +1,10 @@
 export interface Inventory {
+  id: string;
   date: number;
-  items?: { [key: string]: Item };
+}
+
+export interface InventoryValues {
+  [id: string]: Item;
 }
 
 export interface Item {
