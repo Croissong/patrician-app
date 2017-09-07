@@ -1,5 +1,6 @@
 <md-input-container>
-    <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+    <input mdInput [mdDatepicker]="picker" placeholder="Date"
+        [mdDatepickerFilter]="pickerFilter">
     <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
 </md-input-container>
 <md-datepicker #picker></md-datepicker>

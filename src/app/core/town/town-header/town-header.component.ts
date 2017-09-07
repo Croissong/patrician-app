@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { TownComponentId } from 'app/core/town';
-import { TownService } from 'app/core/town/shared/town.service';
+import { TownComponentId, Inventory } from 'app/core/town';
 import { Town } from 'app/core/town/town.model';
 import { Observable } from 'rxjs/Observable';
+import { InventoryService, TownService } from 'app/core/town/shared';
 
 @Component({
   selector: 'town-header',
@@ -12,20 +12,22 @@ import { Observable } from 'rxjs/Observable';
 })
 export class TownHeaderComponent implements OnInit {
 
+  public inventories$: Observable<Inventory[]>;
   public towns$: Observable<Town[]>;
   public selectedTown$: Observable<string>;
 
   @Input() private readonly componentId: TownComponentId;
 
-  constructor(private service: TownService) {
-    this.towns$ = service.getTowns();
+  constructor(private townService: TownService, private inventoryService: InventoryService) {
+    this.towns$ = townService.getTowns();
   }
 
   public ngOnInit(): void {
-    this.selectedTown$ = this.service.getSelectedTown(this.componentId);
+    this.selectedTown$ = this.townService.getSelectedTown(this.componentId);
+    this.inventories$ = this.inventoryService.getInventories(this.componentId);
   }
 
   public selectTown(id: string) {
-    this.service.selectTown(this.componentId, id);
+    this.townService.selectTown(this.componentId, id);
   }
 }
