@@ -73,7 +73,6 @@
         "monolite": "^0.4.5",
         "normalize.css": "^7.0.0",
         "reflect-metadata": "^0.1.10",
-        "reselect": "^3.0.1",
         "rxjs": "^5.4.3",
         "zone.js": "^0.8.17"
     },

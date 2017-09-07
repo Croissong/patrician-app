@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TownComponentId } from 'app/core/town';
 import { InventoryService, Item } from 'app/core/town/shared';
 import { Observable } from 'rxjs/Observable';
 
@@ -7,11 +8,15 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: [],
   templateUrl: './inventory.component.html'
 })
-export class InventoryComponent {
+export class InventoryComponent implements OnInit {
   public items$: Observable<Item[]>;
 
-  constructor(service: InventoryService) {
-    this.items$ = service.selectItems();
+  @Input() private readonly componentId: TownComponentId;
+
+  constructor(private service: InventoryService) { }
+
+  public ngOnInit(): void {
+    this.items$ = this.service.selectItems(this.componentId);
   }
 
 }

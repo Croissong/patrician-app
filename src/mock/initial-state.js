@@ -56,6 +56,6 @@ export default {
     ]
   },
   town: {
-    selected: '1'
+    selected: { Town1: '1', Town2: '2'}
   }
 };

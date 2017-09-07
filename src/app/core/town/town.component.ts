@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'town',
@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   templateUrl: 'town.component.html'
 })
 export class TownComponent {
+  @Input() public id: string;
 }
