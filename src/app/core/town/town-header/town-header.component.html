@@ -3,5 +3,8 @@
     [selected]="selectedTown$ | async"
     (select)="selectTown($event)">
 </town-select>
-<town-date-select [inventories]="inventories$ | async">
+<town-date-select
+    [inventories]="inventories$ | async"
+    [selected]="selectedDate$ | async"
+    (select)="selectInventory($event)">
 </town-date-select>

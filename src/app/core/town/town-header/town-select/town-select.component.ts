@@ -9,10 +9,11 @@ import { FormControl } from '@angular/forms';
 })
 export class TownSelectComponent {
   @Input() public towns: string[];
-  @Input() set selected(v: string) {
-    this.selectedTown.patchValue(v);
+  @Input() private set selected(town: string) {
+    this.selectedTown.patchValue(town);
   }
   @Output() public select = new EventEmitter<string>();
+
   public selectedTown = new FormControl();
 
   public onChange(id: string) {

@@ -15,6 +15,16 @@ export const getSelectedTown = {
   Town2: createSelectedTownSelector('Town2')
 };
 
+export const getInventoryIds = {
+  Town1: createInventoryIdsSelector('Town1'),
+  Town2: createInventoryIdsSelector('Town2')
+};
+
 function createSelectedTownSelector(componentId: TownComponentId) {
   return createSelector(getTownState, (t) => t.selected[componentId]);
+}
+
+function createInventoryIdsSelector(componentId: TownComponentId) {
+  return createSelector(getTownState, getSelectedTown[componentId],
+    (state, selectedTown) => state.inventories[selectedTown]);
 }

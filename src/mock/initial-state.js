@@ -1,18 +1,16 @@
 export default {
   inventory: {
+    selected: { Town1: '1', Town2: '2'},
     inventories: {
-      1: [
-        {
-          id: 1,
-          date: 1504816517000
-        }
-      ],
-      2: [
-        {
-          id: 2,
-          date: 1504656000000
-        }
-      ]
+      1:{
+        id: '1',
+        date: 1504816517000
+      },
+
+      2: {
+        id: '2',
+        date: 1504656000000
+      }
     },
 
     values: {
@@ -64,6 +62,10 @@ export default {
   },
 
   town: {
-    selected: { Town1: '1', Town2: '2'}
+    selected: { Town1: '1', Town2: '2'},
+    inventories: {
+      1: ['1', '2'],
+      2: ['1', '2']
+    }
   }
 };

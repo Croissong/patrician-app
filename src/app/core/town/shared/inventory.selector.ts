@@ -1,11 +1,15 @@
 import { createSelector } from '@ngrx/store';
 import { AppState } from 'app/app-store';
-import { Inventory, Item, TownComponentId, InventoryState } from 'app/core/town';
-import { getSelectedTown } from 'app/core/town/shared/town.selector';
+import { Inventory, InventoryState, Item, TownComponentId } from 'app/core/town';
+import { getInventoryIds, getSelectedTown } from 'app/core/town/shared/town.selector';
 import { items } from './inventory.model';
 
-const getTownState = (s: AppState) => s.town;
 const getInventoryState = (s: AppState) => s.inventory;
+
+const getSelectedInventory = {
+  Town1: createSelectedInventorySelector('Town1'),
+  Town2: createSelectedInventorySelector('Town2')
+};
 
 export const getItems = {
   Town1: createItemsSelector('Town1'),
@@ -17,20 +21,32 @@ export const getInventories = {
   Town2: createInventoriesSelector('Town2')
 };
 
+export const getInventory = {
+  Town1: createInventorySelector('Town1'),
+  Town2: createInventorySelector('Town2')
+};
+
 function createItemsSelector(componentId: TownComponentId) {
-  return createSelector(
-    getInventoryState, getSelectedTown[componentId],
-    (i, t) => getItemValues(i, t)
+  return createSelector(getInventoryState, getSelectedInventory[componentId],
+    (state, selectedInventoryId) => getItemValues(state, selectedInventoryId)
   );
 }
 
 function createInventoriesSelector(componentId: TownComponentId) {
-  return createSelector(getInventoryState, getSelectedTown[componentId],
-    (i, t) => i.inventories[t]);
+  return createSelector(getInventoryState, getInventoryIds[componentId],
+    (state, inventoryIds) => inventoryIds.map((id) => state.inventories[id]));
 }
 
-const getItemValues = (inventoryState: InventoryState, town: string) => {
-  const inventory = inventoryState.inventories[town][0];
-  const values = inventoryState.values[inventory.id];
+function createSelectedInventorySelector(componentId: TownComponentId) {
+  return createSelector(getInventoryState, (state) => state.selected[componentId]);
+}
+
+function createInventorySelector(componentId: TownComponentId) {
+  return createSelector(getInventoryState, getSelectedInventory[componentId],
+    (state, selectedInventoryId) => state.inventories[selectedInventoryId]);
+}
+
+const getItemValues = (s: InventoryState, inventoryId: string) => {
+  const values = s.values[inventoryId];
   return items.map(({ name, id }) => ({ name, ...values[id] }));
 };

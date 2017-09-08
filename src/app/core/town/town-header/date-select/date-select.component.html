@@ -1,6 +1,7 @@
 <md-input-container>
     <input mdInput [mdDatepicker]="picker" placeholder="Date"
-        [mdDatepickerFilter]="pickerFilter">
+        [formControl]="selectedDate"
+        [mdDatepickerFilter]="pickerFilter" (dateChange)="onChange($event.value)">
     <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
 </md-input-container>
 <md-datepicker #picker></md-datepicker>

@@ -18,6 +18,6 @@ export class TownService {
   }
 
   public selectTown(component: TownComponentId, id: string) {
-    return this.store.dispatch(new SelectTownAction({ component, id }));
+    return this.store.dispatch(new SelectTownAction(component, id));
   }
 }
