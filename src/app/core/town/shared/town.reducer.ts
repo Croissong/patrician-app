@@ -9,16 +9,16 @@ export interface TownState {
   inventories: { [townId: string]: string[] };
 }
 
-const SELECT_TOWN = 'SELECT_TOWN';
+export const SELECT_TOWN = 'SELECT_TOWN';
 
-type Actions = SelectTownAction;
+export type TownActions = SelectTownAction;
 
 export class SelectTownAction implements Action {
   public readonly type = SELECT_TOWN;
   constructor(public component: TownComponentId, public id: string) { }
 }
 
-export function townReducer(s: TownState, action: Actions): TownState {
+export function townReducer(s: TownState, action: TownActions): TownState {
   switch (action.type) {
     case SELECT_TOWN: return selectTown(s, action.component, action.id);
     default: return s;

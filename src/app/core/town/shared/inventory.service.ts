@@ -6,7 +6,7 @@ import { AppState } from 'app/app-store';
 import { TownComponentId } from 'app/core/town';
 import { SelectInventoryAction } from 'app/core/town/shared/inventory.reducer';
 import inventoryDateAdded from './gql/inventoryDateAdded.gql';
-import { getInventories, getInventory, getItems } from './inventory.selector';
+import { selectedInventories, getInventory, getItems } from './inventory.selector';
 
 @Injectable()
 export class InventoryService {
@@ -15,7 +15,7 @@ export class InventoryService {
   public getInventories(componentId: TownComponentId) {
     this.apollo.query({ query: inventoryDateAdded })
       .subscribe((result) => console.log(result));
-    return this.store.select(getInventories[componentId]);
+    return this.store.select(selectedInventories[componentId]);
   }
 
   public getInventory(componentId: TownComponentId) {
