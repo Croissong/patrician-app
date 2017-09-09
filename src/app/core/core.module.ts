@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 
+import { EffectsModule } from '@ngrx/effects';
 import { AppStoreModule } from 'app/app-store';
 import { TownModule } from 'app/core/town';
+import { TownEffects } from 'app/core/town/shared/town.effects';
 import { SharedModule } from 'app/shared';
 import { CoreComponent } from './core.component';
-import { EffectsModule } from '@ngrx/effects';
-import { TownEffects } from 'app/core/town/shared/town.effects';
 
 @NgModule({
   declarations: [

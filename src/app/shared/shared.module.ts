@@ -5,6 +5,9 @@ import { MdButtonModule, MdCardModule, MdInputModule, MdSelectModule } from '@an
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/take';
+
 @NgModule({
   exports: [
     BrowserAnimationsModule,

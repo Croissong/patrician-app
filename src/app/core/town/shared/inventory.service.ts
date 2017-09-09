@@ -6,7 +6,7 @@ import { AppState } from 'app/app-store';
 import { TownComponentId } from 'app/core/town';
 import { SelectInventoryAction } from 'app/core/town/shared/inventory.reducer';
 import inventoryDateAdded from './gql/inventoryDateAdded.gql';
-import { selectedInventories, getInventory, getItems } from './inventory.selector';
+import { getInventory, getItems, selectedInventories } from './inventory.selector';
 
 @Injectable()
 export class InventoryService {

@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'app/app-store';
 import { SelectTownAction, TownComponentId } from './town.reducer';
-import { getSelectedTown, getTowns, getTownState, getInventoryIds } from './town.selector';
+import { getInventoryIds, getSelectedTown, getTowns, getTownState } from './town.selector';
+import { InventoryService } from 'app/core/town/shared';
+import last from 'lodash.last';
 
 @Injectable()
 export class TownService {
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private inventoryService: InventoryService) {
   }
 
   public getTowns() {
@@ -22,6 +24,18 @@ export class TownService {
   }
 
   public selectTown(component: TownComponentId, id: string) {
-    return this.store.dispatch(new SelectTownAction(component, id));
+    this.selectLatestInventory(component, id);
+    this.store.dispatch(new SelectTownAction(component, id));
+  }
+
+  private selectLatestInventory(componentId: TownComponentId, townId: string) {
+    this.getInventoryIds(townId).take(1).subscribe(
+      (inventoryIds) => {
+        const latestInventory = last(inventoryIds);
+        if (latestInventory) {
+          this.inventoryService.selectInventory(componentId, latestInventory);
+        }
+      }
+    );
   }
 }

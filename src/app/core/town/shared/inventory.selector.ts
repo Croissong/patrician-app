@@ -1,7 +1,7 @@
 import { createSelector } from '@ngrx/store';
 import { AppState } from 'app/app-store';
 import { Inventory, InventoryState, Item, TownComponentId } from 'app/core/town';
-import { selectSelectedInventoryIds, getSelectedTown } from 'app/core/town/shared/town.selector';
+import { getSelectedTown, selectSelectedInventoryIds } from 'app/core/town/shared/town.selector';
 import { items } from './inventory.model';
 
 const getInventoryState = (s: AppState) => s.inventory;
