@@ -130,7 +130,16 @@ module.exports = function (options) {
         // poll: 1000,
         ignored: /node_modules/
       },
-      stats: 'errors-only'
+      stats: 'errors-only',
+      proxy: {
+        '!**/*.*': {
+          target: 'http://localhost:3001'
+        },
+        '/socket/*': {
+          target: 'http://localhost:4000',
+          ws: true
+        }
+      }
     },
 
     node: {

@@ -5,7 +5,7 @@ import { createNetworkInterface } from 'apollo-phoenix-websocket';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'ws://localhost:4000/socket'
+    uri: '/socket'
   })
 });
 

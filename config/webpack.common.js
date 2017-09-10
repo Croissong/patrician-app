@@ -12,6 +12,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const HtmlWebpackHarddiskPlugin= require('html-webpack-harddisk-plugin');
 const ngcWebpack = require('ngc-webpack');
 
 const HMR = helpers.hasProcessFlag('hot');
@@ -167,6 +168,8 @@ module.exports = function (options) {
       new HtmlWebpackPlugin({
         template: 'src/index.html',
         title: METADATA.title,
+        filename: 'templates/index.html',
+        alwaysWriteToDisk: true,
         chunksSortMode: function (a, b) {
           const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"];
           return entryPoints.indexOf(a.names[0]) - entryPoints.indexOf(b.names[0]);
@@ -174,6 +177,7 @@ module.exports = function (options) {
         metadata: METADATA,
         inject: 'body'
       }),
+      new HtmlWebpackHarddiskPlugin(),
 
       new ScriptExtHtmlWebpackPlugin({
         sync: /polyfills|vendor/,
