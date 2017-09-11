@@ -31,8 +31,9 @@ import 'core-js/es6/weak-set';
 /**
  * See issue https://github.com/AngularClass/angular-starter/issues/709
  */
- /* import 'core-js/es6/promise'; */
+/* import 'core-js/es6/promise'; */
 
+import 'core-js/es7/object';
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
 

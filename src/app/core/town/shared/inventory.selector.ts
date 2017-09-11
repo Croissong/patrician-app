@@ -1,30 +1,21 @@
 import { createSelector } from '@ngrx/store';
 import { AppState } from 'app/app-store';
 import { Inventory, InventoryState, Item, TownComponentId } from 'app/core/town';
-import { getSelectedTown, selectSelectedInventoryIds } from 'app/core/town/shared/town.selector';
+import {
+  createComponentSelectors, getSelectedTown,
+  selectSelectedInventoryIds
+} from 'app/core/town/shared/town.selector';
 import { items } from './inventory.model';
 
 const getInventoryState = (s: AppState) => s.inventory;
 
-const getSelectedInventory = {
-  Town1: createSelectedInventorySelector('Town1'),
-  Town2: createSelectedInventorySelector('Town2')
-};
+const getSelectedInventory = createComponentSelectors(createSelectedInventorySelector);
 
-export const getItems = {
-  Town1: createItemsSelector('Town1'),
-  Town2: createItemsSelector('Town2')
-};
+export const getItems = createComponentSelectors(createItemsSelector);
 
-export const selectedInventories = {
-  Town1: createInventoriesSelector('Town1'),
-  Town2: createInventoriesSelector('Town2')
-};
+export const selectedInventories = createComponentSelectors(createInventoriesSelector);
 
-export const getInventory = {
-  Town1: createInventorySelector('Town1'),
-  Town2: createInventorySelector('Town2')
-};
+export const getInventory = createComponentSelectors(createInventorySelector);
 
 function createItemsSelector(componentId: TownComponentId) {
   return createSelector(getInventoryState, getSelectedInventory[componentId],

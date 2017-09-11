@@ -1,6 +1,7 @@
-import { createSelector } from '@ngrx/store';
+import { createSelector, MemoizedSelector } from '@ngrx/store';
 import { AppState } from 'app/app-store';
 import { TownComponentId, towns, TownState } from 'app/core/town';
+import { townComponentIds } from 'app/core/town/shared/town.reducer';
 
 export const getTownState = (s: AppState) => s.town;
 
@@ -10,15 +11,9 @@ export const getTowns = createSelector(
   getTownState,
   (state) => Object.keys(state.inventories).map((id) => towns[id]));
 
-export const getSelectedTown = {
-  Town1: createSelectedTownSelector('Town1'),
-  Town2: createSelectedTownSelector('Town2')
-};
+export const getSelectedTown = createComponentSelectors(createSelectedTownSelector);
 
-export const selectSelectedInventoryIds = {
-  Town1: createInventoryIdsSelector('Town1'),
-  Town2: createInventoryIdsSelector('Town2')
-};
+export const selectSelectedInventoryIds = createComponentSelectors(createInventoryIdsSelector);
 
 function createSelectedTownSelector(componentId: TownComponentId) {
   return createSelector(getTownState, (t) => t.selected[componentId]);
@@ -30,4 +25,11 @@ function createInventoryIdsSelector(componentId: TownComponentId) {
 
 export function getInventoryIds(state: TownState, townId: string) {
   return state.inventories[townId];
+}
+
+export function createComponentSelectors<T>(
+  selectorCreator: (componentId: TownComponentId) => MemoizedSelector<AppState, T>) {
+  return townComponentIds.reduce(
+    (selectors, componentId) => ({ ...selectors, [componentId]: selectorCreator(componentId) }),
+    {} as {[component in TownComponentId]: MemoizedSelector<AppState, T> });
 }

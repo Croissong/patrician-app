@@ -1,8 +1,8 @@
 import { Action } from '@ngrx/store';
 import { set } from 'monolite';
 
-export type TownComponentId =
-  'Town1' | 'Town2';
+export const townComponentIds: [TownComponentId] = ['Town1', 'Town2'];
+export type TownComponentId = 'Town1' | 'Town2';
 
 export interface TownState {
   selected: {[component in TownComponentId]: string };

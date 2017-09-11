@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'app/app-store';
-import { SelectTownAction, TownComponentId } from './town.reducer';
-import { getInventoryIds, getSelectedTown, getTowns, getTownState } from './town.selector';
 import { InventoryService } from 'app/core/town/shared';
 import last from 'lodash.last';
+import { SelectTownAction, TownComponentId } from './town.reducer';
+import { getInventoryIds, getSelectedTown, getTowns, getTownState } from './town.selector';
 
 @Injectable()
 export class TownService {
