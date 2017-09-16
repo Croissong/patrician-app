@@ -1,6 +1,6 @@
 import { InjectionToken, NgModule } from '@angular/core';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { ActionReducerMap, StoreModule } from '@ngrx/store';
+import { ActionReducerMap, StoreModule, Store } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { PROD } from 'app/environment';
 import { AppState, createReducers } from './app.reducer';
@@ -29,8 +29,10 @@ export function getInitialState() {
   }]
 })
 export class AppStoreModule {
-  constructor() {
-    hydrateRoute(initialState as AppState);
+  constructor(private store: Store<AppState>) {
+    store.take(1).subscribe((s) => {
+      hydrateRoute(s);
+    });
   }
 }
 
