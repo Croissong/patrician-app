@@ -1,0 +1,22 @@
+:host {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "town-select town-date-select town-gold";
+
+    align-items: "center";
+}
+
+.town-select {
+    grid-area: town-select;
+}
+
+.town-date-select {
+    grid-area: town-date-select;
+}
+
+.town-gold {
+    grid-area: town-gold;
+    justify-self: end;
+}

@@ -18,6 +18,7 @@ export class TownHeaderComponent implements OnInit {
   public selectedTown$: Observable<string>;
   public inventories$: Observable<Inventory[]>;
   public selectedDate$: Observable<number>;
+  public townGold$: Observable<number>;
 
   constructor(private townService: TownService, private inventoryService: InventoryService) {
     this.towns$ = townService.getTowns();
@@ -28,6 +29,8 @@ export class TownHeaderComponent implements OnInit {
     this.inventories$ = this.inventoryService.getInventories(this.componentId);
     this.selectedDate$ = this.inventoryService.getInventory(this.componentId)
       .select((i) => i.date);
+    this.townGold$ = this.inventoryService.getInventory(this.componentId)
+      .select((i) => i.gold);
   }
 
   public selectTown(id: string) {

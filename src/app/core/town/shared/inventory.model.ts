@@ -1,6 +1,7 @@
 export interface Inventory {
   id: string;
   date: number;
+  gold: number;
 }
 
 export interface InventoryValues {

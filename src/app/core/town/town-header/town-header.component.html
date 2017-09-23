@@ -1,10 +1,13 @@
-<town-select
-    [towns]="towns$ | async"
-    [selected]="selectedTown$ | async"
-    (select)="selectTown($event)">
+<town-select class="town-select"
+  [towns]="towns$ | async"
+  [selected]="selectedTown$ | async"
+  (select)="selectTown($event)">
 </town-select>
-<town-date-select
-    [inventories]="inventories$ | async"
-    [selected]="selectedDate$ | async"
-    (select)="selectInventory($event)">
+<town-date-select class="town-date-select"
+  [inventories]="inventories$ | async"
+  [selected]="selectedDate$ | async"
+  (select)="selectInventory($event)">
 </town-date-select>
+<town-gold class="town-gold"
+  [value]="townGold$ | async">
+</town-gold>
