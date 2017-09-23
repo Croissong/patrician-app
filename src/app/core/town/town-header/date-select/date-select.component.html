@@ -1,7 +1,7 @@
-<md-input-container>
-    <input mdInput [mdDatepicker]="picker" placeholder="Date"
-        [formControl]="selectedDate"
-        [mdDatepickerFilter]="pickerFilter" (dateChange)="onChange($event.value)">
-    <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-</md-input-container>
+<md-form-field>
+  <input mdInput [mdDatepicker]="picker" placeholder="Date"
+    [formControl]="selectedDate"
+    [mdDatepickerFilter]="pickerFilter" (dateChange)="onChange($event.value)">
+  <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+</md-form-field>
 <md-datepicker #picker></md-datepicker>

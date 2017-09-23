@@ -6,7 +6,7 @@ import isSameDay from 'date-fns/is_same_day';
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'town-gold',
-  styleUrls: [],
+  styleUrls: ['town-gold.component.css'],
   templateUrl: 'town-gold.component.html'
 })
 export class TownGoldComponent {

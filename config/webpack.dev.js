@@ -107,6 +107,8 @@ module.exports = function (options) {
         }
       }),
 
+      new NamedModulesPlugin(),
+
       new LoaderOptionsPlugin({
         debug: true,
         options: {

@@ -5,7 +5,8 @@
     grid-template-areas:
     "town-select town-date-select town-gold";
 
-    align-items: "center";
+    align-items: center;
+    font-size: 16px;
 }
 
 .town-select {
@@ -14,9 +15,11 @@
 
 .town-date-select {
     grid-area: town-date-select;
+    margin-bottom: -1.3em;
 }
 
 .town-gold {
     grid-area: town-gold;
-    justify-self: end;
+    justify-self: center;
+    padding-top: 1em;
 }
