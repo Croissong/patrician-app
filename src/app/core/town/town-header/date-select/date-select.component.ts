@@ -14,7 +14,7 @@ export class TownDateSelectComponent {
   @Input() private set selected(date: number) {
     this.selectedDate.patchValue(new Date(date));
   }
-  @Output() public select = new EventEmitter<string>();
+  @Output() private select = new EventEmitter<string>();
 
   public selectedDate = new FormControl();
   public pickerFilter = (d: Date) => this.hasInventory(d);

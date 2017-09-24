@@ -1,7 +1,8 @@
 <md-form-field>
-  <input mdInput [mdDatepicker]="picker" placeholder="Date"
+  <input mdInput [mdDatepicker]="picker" placeholder="Date" readonly
     [formControl]="selectedDate"
-    [mdDatepickerFilter]="pickerFilter" (dateChange)="onChange($event.value)">
+    [mdDatepickerFilter]="pickerFilter" (dateChange)="onChange($event.value)"
+    (focus)="picker.open()" (click)="picker.open()">
   <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
 </md-form-field>
 <md-datepicker #picker></md-datepicker>
